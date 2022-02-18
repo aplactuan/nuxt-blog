@@ -1,5 +1,7 @@
 <template>
-  <Tutorial/>
+  <div>
+    this is it, we are starting
+  </div>
 </template>
 
 <script>
