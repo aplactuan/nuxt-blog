@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get the latest tech news</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts"/>
   </div>
 </template>
 
@@ -14,6 +14,24 @@
     name: 'IndexPage',
     components: {
       PostList
+    },
+    data() {
+      return {
+        loadedPosts: [
+          {
+            id: '1',
+            title: 'This is my first post',
+            previewText: 'This is the preview text',
+            thumbnail: 'https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/02/Photoshop-Replace-Background-Featured.jpg'
+          },
+          {
+            id: '2',
+            title: 'This is my second post',
+            previewText: 'This is the second preview text',
+            thumbnail: 'https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/02/Photoshop-Replace-Background-Featured.jpg'
+          }
+        ]
+      }
     }
   }
 </script>

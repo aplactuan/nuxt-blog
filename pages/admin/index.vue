@@ -5,7 +5,7 @@
     </section>
     <section class="existing-posts">
       <h1>Existing Posts</h1>
-      <PostList isAdmin />
+      <PostList isAdmin :posts="loadedPosts" />
     </section>
   </div>
 </template>
@@ -18,6 +18,24 @@
     components: {
       PostList,
       AppButton
+    },
+    data() {
+      return {
+        loadedPosts: [
+          {
+            id: '1',
+            title: 'This is my first post',
+            previewText: 'This is the preview text',
+            thumbnail: 'https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/02/Photoshop-Replace-Background-Featured.jpg'
+          },
+          {
+            id: '2',
+            title: 'This is my second post',
+            previewText: 'This is the second preview text',
+            thumbnail: 'https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/02/Photoshop-Replace-Background-Featured.jpg'
+          }
+        ]
+      }
     }
   }
 </script>
