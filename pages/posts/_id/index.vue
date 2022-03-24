@@ -1,12 +1,12 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">The title of the post</h1>
+      <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">Last updated on</div>
-        <div class="post-detail">Written by</div>
+        <div class="post-detail">Last updated on {{ loadedPost.updatedDate }}</div>
+        <div class="post-detail">Written by: {{ loadedPost.author }}</div>
         <p class="post-content">
-          This is the content of the post
+          {{ loadedPost.content }}
         </p>
       </div>
     </section>
@@ -15,6 +15,26 @@
     </section>
   </div>
 </template>
+
+<script>
+  export default {
+    asyncData(context, callback) {
+      setTimeout(() => {
+        callback(null, {
+          loadedPost: {
+            id: '1',
+            title: `This is my first ${context.params.id} post`,
+            previewText: 'This is the preview text',
+            author: 'Brad Pitt',
+            updatedDate: new Date(),
+            content: 'Some dummy text which is not the preview text',
+            thumbnail: 'https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/02/Photoshop-Replace-Background-Featured.jpg'
+          }
+        })
+      }, 1000)
+    }
+  }
+</script>
 
 <style scoped>
   .single-post-page {
