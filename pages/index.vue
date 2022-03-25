@@ -15,25 +15,33 @@
     components: {
       PostList
     },
-    asyncData(context, callback) {
-      setTimeout(() => {
-        callback(null, {
-          loadedPosts: [
-            {
-              id: '1',
-              title: 'This is my first post',
-              previewText: 'This is the preview text',
-              thumbnail: 'https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/02/Photoshop-Replace-Background-Featured.jpg'
-            },
-            {
-              id: '2',
-              title: 'This is my second post',
-              previewText: 'This is the second preview text',
-              thumbnail: 'https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/02/Photoshop-Replace-Background-Featured.jpg'
-            }
-          ]
+    asyncData(context) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({
+            loadedPosts: [
+              {
+                id: '1',
+                title: 'This is my first post',
+                previewText: 'This is the preview text',
+                thumbnail: 'https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/02/Photoshop-Replace-Background-Featured.jpg'
+              },
+              {
+                id: '2',
+                title: 'This is my second post',
+                previewText: 'This is the second preview text',
+                thumbnail: 'https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/02/Photoshop-Replace-Background-Featured.jpg'
+              }
+            ]
+          })
+        }, 2000)
+      })
+        .then(data => {
+          return data;
         })
-      }, 2000)
+        .catch(e => {
+        context.error(new Error())
+      })
     },
     // data() {
     //   return {
