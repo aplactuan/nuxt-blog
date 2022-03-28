@@ -43,6 +43,7 @@
         context.error(new Error())
       })
     },
+
     // data() {
     //   return {
     //     loadedPosts: []

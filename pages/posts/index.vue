@@ -28,6 +28,9 @@
           ]
         })
       }, 2000)
+    },
+    created() {
+      this.$store.dispatch('setPosts', this.posts);
     }
   }
 </script>
